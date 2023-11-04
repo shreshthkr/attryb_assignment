@@ -1,49 +1,53 @@
 const mongoose = require("mongoose");
 
 const inventorySchema = mongoose.Schema(
-    {
-      image: {
-        type:String,
-        required:true,
-      },
-       model: {
-        type:String,
-        required:true,
-       },
-       mileage: {
-        type: Number,
+  {
+    model: {
+        type: String,
         required: true,
       },
-       kmTravelled:{
-        type:Number,
+    mileage: { 
+        type: Number, 
+        required: true
+     },
+     price:{
+        type: Number,
         required:true
-       },
-       scratches:{
-        type:Number,
-        required:true
-       },
-       originalPaint:{
-        type:String,
-        required:true,
-       },
-       accidentCount:{
-        type:Number,
-        required:true
-       },
-       previousBuyer:{
-        type:Number,
-        required:true
-       },
-       registrationPlace:{
-        type:String,
-        required:true
-       } 
+     },
+    km_odeometer: {
+      type: Number,
+      required: true,
     },
-    {
-      versionKey: false,
-    }
+    scratches: {
+      type: Number,
+      required: true,
+    },
+    originalPaint: {
+      type: String,
+      required: true,
+    },
+    accidentCount: {
+      type: Number,
+      required: true,
+    },
+    previousBuyer: {
+      type: Number,
+      required: true,
+    },
+    registrationPlace: {
+      type: String,
+      required: true,
+    },
+    image: {
+        type: String,
+        required: true,
+      },
+  },
+  {
+    versionKey: false,
+  }
 );
 
-const inventoryModel = mongoose.model("Inventory",inventorySchema )
+const inventoryModel = mongoose.model("Inventory", inventorySchema);
 
-exports.module = {inventoryModel}
+module.exports = { inventoryModel };
