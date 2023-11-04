@@ -1,0 +1,60 @@
+.inventory{
+    width: 100%;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.inventory-nav{
+    width: 100%;
+    height: 30px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.inventory-nav p {
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.inventory-manage{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.add-inventory{
+    width: 50%;
+    height: 600px;
+    border: 1px solid black;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.inventory-heading{
+  width: 100%;
+  height: 60px;
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inventory-heading h1{
+    color: teal;
+    font-size: 30px;
+
+}
+.inventory-form{
+   width: 100%;
+   height: 500px;
+   border: 1px solid red;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+}

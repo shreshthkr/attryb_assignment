@@ -1,6 +1,6 @@
 import React from 'react'
-
-const Signup = () => {
+import "./Footer.css"
+const Footer = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Signup = () => {
   )
 }
 
-export default Signup;
+export default Footer;

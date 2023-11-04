@@ -1,24 +1,31 @@
 const express = require("express");
 const inventoryRouter = express.Router();
 const { inventoryModel } = require("../models/inventory.model");
-const cloudinary = require('cloudinary').v2;
-const fileUpload = require('express-fileupload');
+// const cloudinary = require('cloudinary').v2;
+// const fileUpload = require('express-fileupload');
 
-cloudinary.config({ 
-    cloud_name: 'dbt1pdrlj', 
-    api_key: '559994769546896', 
-    api_secret: 'MAVkg8wxCtAoYhpvRwfkkIrmVkM'
-});
+// cloudinary.config({ 
+//     cloud_name: 'dbt1pdrlj', 
+//     api_key: '559994769546896', 
+//     api_secret: 'MAVkg8wxCtAoYhpvRwfkkIrmVkM'
+// });
 
 
 // inventoryRouter.use(fileUpload());
-
+/*
 inventoryRouter.post("/addInventory", async (req, res) => {
-    
-    const file = req.files.image;
-   cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
-    console.log(result);
     try {
+        if (!req.files || !req.files.image) {
+            return res.status(400).send({ msg: "No image file uploaded" });
+        }
+
+        const file = req.files.image;
+        const result = await cloudinary.uploader.upload(file.tempFilePath);
+
+        if (!result || !result.url) {
+            return res.status(500).send({ msg: "Failed to upload image to Cloudinary" });
+        }
+
         const allInventory = new inventoryModel({
             model: req.body.model,
             mileage: req.body.mileage,
@@ -29,17 +36,28 @@ inventoryRouter.post("/addInventory", async (req, res) => {
             accidentCount: req.body.accidentCount,
             previousBuyer: req.body.previousBuyer,
             registrationPlace: req.body.registrationPlace,
-            image: result.url // Storing the Cloudinary image URL 
+            image: result.url,
+            description: req.body.description
         });
 
-        allInventory.save()
-         res.status(200).send({ msg: "Inventory Added", allInventory});
-      
+        await allInventory.save();
+        res.status(200).send({ msg: "Inventory Added", allInventory });
     } catch (error) {
+        console.error(error);
         res.status(400).send({ msg: error.message });
     }
-   })
 });
+*/
+
+inventoryRouter.post("/add", async (req,res)=>{
+    const newInventory = new inventoryModel(req.body);
+    try {
+        const inventory = await newInventory.save();
+        res.status(200).send(inventory);
+    } catch (error) {
+        res.status(400).send({ "msg": error.message })
+    }
+})
 
 inventoryRouter.get("/", async (req, res) => {
     try {

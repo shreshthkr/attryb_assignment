@@ -14,7 +14,9 @@ const Navbar = () => {
     const toHomePage = () => {
         return navigate("/")
     }
-
+const toDealerPage = () => {
+  return navigate("/dealer")
+}
   return (
     <div className='navbar'>
        <div className='logo'>
@@ -25,7 +27,7 @@ const Navbar = () => {
            <ul>
             <li>About us</li>
             <li>Contact us</li>
-            <li>Help</li>
+            <li onClick={toDealerPage}>Dealer Section</li>
             <li onClick={toLogin}><RxAvatar fontSize={"25px"} /> Login/Signup</li>
            </ul>
        </div>

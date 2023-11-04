@@ -14,6 +14,7 @@ dealerRouter.post("/register", async (req, res) => {
         age,
         city,
         state,
+        role:'dealer',
         password: hash,
       });
       await dealer.save();
@@ -34,7 +35,8 @@ dealerRouter.post("/login", async (req, res) => {
           if (result) {
             res.status(200).send({
               msg: "Login Successfull",
-              token: jwt.sign({ dealerID: dealer._id }, "attryb"),
+              token: jwt.sign({ dealerID: dealer._id, role:"dealer" }, "attryb"),
+              dealerID: dealer._id
             });
           } else {
             res.status(400).send({ msg: "Wrong Credentials" });

@@ -3,7 +3,7 @@ const cors = require("cors")
 const dotenv = require("dotenv");
 dotenv.config();
 
-const fileUpload = require("express-fileupload");
+
 const { connection } = require("./Config/db");
 const { userRouter } = require("./routes/user.routes");
 const {dealerRouter} = require("./routes/dealer.routes");
@@ -14,9 +14,7 @@ const app = express()
 
 app.use(express.json()) 
 app.use(cors())
-app.use(fileUpload({
-    useTempFiles:true
-})); 
+ 
 
 app.use("/users", userRouter);
 app.use("/dealers", dealerRouter);

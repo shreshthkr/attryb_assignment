@@ -22,6 +22,10 @@ const dealerSchema = mongoose.Schema(
         type:String,
         reuired:true
       },
+      role:{
+        type:String,
+        required:true,
+      },
       password: {
         type:String,
         required: [true, "Please Enter Your Password"]

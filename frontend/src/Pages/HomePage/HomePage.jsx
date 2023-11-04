@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { getInventory } from "../../Redux/action";
 import InventoryCard from "./InventoryCard";
+import SideBar from "./SideBar";
 const HomePage = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
@@ -13,7 +14,10 @@ const HomePage = () => {
 
    let obj = {
     params:{
-      category: searchParams.getAll("category"),
+      mileage: searchParams.getAll("mileage"),
+      color: searchParams.getAll("color"),
+      _sort:searchParams.get("order") && "price",
+      _order: searchParams.get("order")
     }
    }
 
@@ -26,10 +30,15 @@ const HomePage = () => {
 
   return (
     <div>
+      <div>
+        <SideBar />
+      </div>
+      <div>
       {inventoryData && inventoryData?.map((el)=>(
 
       <InventoryCard key={el._id} car={el} />
       ))}
+      </div>
     </div>
   )
 }
