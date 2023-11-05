@@ -24,7 +24,7 @@ const DealerSignup = () => {
       state: stateloc,
       password: password,
     };
-    fetch("http://localhost:8080/dealers/register", {
+    fetch("https://alert-rose-lovebird.cyclic.app/dealers/register", {
       method: "POST",
       headers: {
         "Content-type": "Application/json",

@@ -8,7 +8,7 @@ const CarDetailsPage = () => {
   const { id } = params;
 
  useEffect(()=>{
-    axios.get(`http://localhost:8080/inventory/${id}`)
+    axios.get(`https://alert-rose-lovebird.cyclic.app/inventory/${id}`)
     .then((res)=>{
       setCar(res.data);
     })

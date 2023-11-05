@@ -13,7 +13,7 @@ const handleLogin = () => {
         email: email,
         password: password,
       };
-      fetch("http://localhost:8080/dealers/login", {
+      fetch("https://alert-rose-lovebird.cyclic.app/dealers/login", {
           method: "POST",
           headers: {
             "Content-type": "Application/json",

@@ -19,7 +19,7 @@ const Login = () => {
       email: email,
       password: password,
     };
-    fetch("http://localhost:8080/users/register", {
+    fetch("https://alert-rose-lovebird.cyclic.app/users/register", {
       method: "POST",
       headers: {
         "Content-type": "Application/json",
@@ -58,7 +58,7 @@ const Login = () => {
       email: loginEmail,
       password: loginPassword,
     };
-    fetch("http://localhost:8080/users/login", {
+    fetch("https://alert-rose-lovebird.cyclic.app/users/login", {
         method: "POST",
         headers: {
           "Content-type": "Application/json",

@@ -10,7 +10,7 @@ const OemSpecs = () => {
   
 const handleSearch = () => {
     if (model.trim() !== '') {
-    axios.get(`http://localhost:8080/oemSpecs/cars?model=${model}`)
+    axios.get(`https://alert-rose-lovebird.cyclic.app/oemSpecs/cars?model=${model}`)
     .then((res) => {
         setOemData(res.data);
     })

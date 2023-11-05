@@ -24,7 +24,7 @@ const InventoryPage = () => {
   const handleSubmit = async () => {
     try {
       let res = await axios.post(
-        `http://localhost:8080/inventory/add`,
+        `https://alert-rose-lovebird.cyclic.app/inventory/add`,
         formData
       );
       console.log(res);

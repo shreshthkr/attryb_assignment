@@ -19,7 +19,7 @@ export const getInventoryError = () => {
 
 export const getInventory = (param) => (dispatch) => {
     dispatch(getInventoryRequest());
-    axios.get(`http://localhost:8080/inventory`,param)
+    axios.get(`https://alert-rose-lovebird.cyclic.app/inventory`,param)
     .then((res)=> {
         console.log(param);
         dispatch(getInventorySuccess(res.data.Data))
