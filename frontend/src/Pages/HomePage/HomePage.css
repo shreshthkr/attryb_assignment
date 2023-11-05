@@ -1,0 +1,23 @@
+.homepage{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.homepage>div:first-child{
+    width: 20%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.homepage>div:last-child{
+    width: 70%;
+    height: 400px;
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   gap: 20px;
+}

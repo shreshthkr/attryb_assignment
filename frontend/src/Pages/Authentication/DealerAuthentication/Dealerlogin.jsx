@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import "./Dealerlogin.css";
 const Dealerlogin = () => {
   
     const [email, setEmail] = useState("");
@@ -32,6 +33,7 @@ const handleLogin = () => {
             });
             setEmail("");
             setPassword("");
+            return navigate("/inventory")
           })
           .catch((err) => {
             console.log(err);
@@ -47,7 +49,9 @@ const handleLogin = () => {
 
   return (
     <div className='Dealer-login'>
+      <div className='dealer-login-header'>
       <h2>Dealer Login</h2>
+      </div>
       <div className='DealerLogin-form'>
           <div>
             <label>Email</label>
@@ -65,7 +69,7 @@ const handleLogin = () => {
             onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div>
+          <div className='dealerlogin-button'>
             <button onClick={handleLogin}>Login</button>
           </div>
       </div>

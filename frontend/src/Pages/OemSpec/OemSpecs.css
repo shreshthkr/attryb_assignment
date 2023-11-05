@@ -1,0 +1,31 @@
+.oem-func{
+    width: 100%;
+    height: auto;   
+}
+.oem-func>div{
+    width: 50%;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.oem-func>div>input{
+    width:90%;
+    border: 1px solid rgb(215, 212, 212);
+    height: 45px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    font-size: 15px;
+     
+}
+.oem-func>div>input+button{
+    width: 150px;
+    height: 45px;
+    border: none;
+    background-color: teal;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+}

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./InventoryPage.css";
 import axios from "axios";
+import Dealer from "../Dealers/Dealer";
+import { useToast } from "@chakra-ui/react";
 const initialState = {
   model: "",
   mileage: null,
@@ -18,17 +20,26 @@ const initialState = {
 const InventoryPage = () => {
   const [state, setState] = useState(true);
   const [formData, setFormData] = useState(initialState);
-
+  const toast = useToast();
   const handleSubmit = async () => {
     try {
-      let res = await axios.post(`http://localhost:8080/inventory/add`, formData);
-      console.log(res)
-      alert("Car data has been added");
+      let res = await axios.post(
+        `http://localhost:8080/inventory/add`,
+        formData
+      );
+      console.log(res);
+      toast({
+        title: "Car Data Added",
+        description: "Inventory has been added Successfully",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      setFormData(initialState);
     } catch (error) {
       console.log(error);
     }
   };
-
 
   return (
     <div className="inventory">
@@ -47,8 +58,10 @@ const InventoryPage = () => {
                 <label>Model Name</label>
                 <input
                   type="text"
-                  placeholder="Enter you car model" 
-                  onChange={(e) => setFormData({...formData, model:e.target.value})}
+                  placeholder="Enter you car model"
+                  onChange={(e) =>
+                    setFormData({ ...formData, model: e.target.value })
+                  }
                 />
               </div>
               <div className="car-milage">
@@ -57,7 +70,9 @@ const InventoryPage = () => {
                   <input
                     type="number"
                     placeholder="Enter Mileage"
-                    onChange={(e) => setFormData({...formData, mileage:e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, mileage: e.target.value })
+                    }
                   />
                 </div>
                 <div>
@@ -65,7 +80,9 @@ const InventoryPage = () => {
                   <input
                     type="number"
                     placeholder="Enter your price"
-                    onChange={(e) => setFormData({...formData, price:e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, price: e.target.value })
+                    }
                   />
                 </div>
               </div>
@@ -74,7 +91,9 @@ const InventoryPage = () => {
                 <input
                   type="number"
                   placeholder="Enter Odeometer reading"
-                  onChange={(e) => setFormData({...formData, km_odeometer:e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, km_odeometer: e.target.value })
+                  }
                 />
               </div>
               <div className="car-paint">
@@ -83,7 +102,9 @@ const InventoryPage = () => {
                   <input
                     type="number"
                     placeholder="Enter Scratches count"
-                    onChange={(e) => setFormData({...formData, scratches:e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, scratches: e.target.value })
+                    }
                   />
                 </div>
                 <div>
@@ -91,7 +112,12 @@ const InventoryPage = () => {
                   <input
                     type="text"
                     placeholder="Enter Color"
-                    onChange={(e) => setFormData({...formData, originalPaint:e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        originalPaint: e.target.value,
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -101,7 +127,12 @@ const InventoryPage = () => {
                   <input
                     type="number"
                     placeholder="Enter no. of Accidents"
-                    onChange={(e) => setFormData({...formData, accidentCount:e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        accidentCount: e.target.value,
+                      })
+                    }
                   />
                 </div>
                 <div>
@@ -109,17 +140,27 @@ const InventoryPage = () => {
                   <input
                     type="number"
                     placeholder="Enter previous buying"
-                    onChange={(e) => setFormData({...formData, previousBuyer:e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        previousBuyer: e.target.value,
+                      })
+                    }
                   />
                 </div>
               </div>
-              <div>
+              <div className="car-registration">
                 <div>
                   <label>Registration location</label>
                   <input
                     type="text"
                     placeholder="Enter Registration Place"
-                    onChange={(e) => setFormData({...formData, registrationPlace:e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        registrationPlace: e.target.value,
+                      })
+                    }
                   />
                 </div>
                 <div>
@@ -127,25 +168,31 @@ const InventoryPage = () => {
                   <input
                     type="text"
                     placeholder="Enter Image URL"
-                    onChange={(e) => setFormData({...formData, image:e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, image: e.target.value })
+                    }
                   />
                 </div>
               </div>
-              <div>
+              <div className="car-description">
                 <label>Description</label>
                 <textarea
                   placeholder="Enter Description"
                   required
-                  onChange={(e) => setFormData({...formData, description:e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, description: e.target.value })
+                  }
                 />
               </div>
-              <div>
+              <div className="car-button">
                 <button onClick={handleSubmit}>Submit</button>
               </div>
             </div>
           </div>
         ) : (
-          <div></div>
+          <div>
+            <Dealer />
+          </div>
         )}
       </div>
     </div>

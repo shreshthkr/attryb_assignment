@@ -5,6 +5,10 @@ const oemSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  image:{
+    type:String,
+    required:true,
+  },
   yearOfModel: {
     type: Number,
     required: true,

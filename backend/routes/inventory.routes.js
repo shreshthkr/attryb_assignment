@@ -1,53 +1,7 @@
 const express = require("express");
 const inventoryRouter = express.Router();
 const { inventoryModel } = require("../models/inventory.model");
-// const cloudinary = require('cloudinary').v2;
-// const fileUpload = require('express-fileupload');
 
-// cloudinary.config({ 
-//     cloud_name: 'dbt1pdrlj', 
-//     api_key: '559994769546896', 
-//     api_secret: 'MAVkg8wxCtAoYhpvRwfkkIrmVkM'
-// });
-
-
-// inventoryRouter.use(fileUpload());
-/*
-inventoryRouter.post("/addInventory", async (req, res) => {
-    try {
-        if (!req.files || !req.files.image) {
-            return res.status(400).send({ msg: "No image file uploaded" });
-        }
-
-        const file = req.files.image;
-        const result = await cloudinary.uploader.upload(file.tempFilePath);
-
-        if (!result || !result.url) {
-            return res.status(500).send({ msg: "Failed to upload image to Cloudinary" });
-        }
-
-        const allInventory = new inventoryModel({
-            model: req.body.model,
-            mileage: req.body.mileage,
-            price: req.body.price,
-            km_odeometer: req.body.km_odeometer,
-            scratches: req.body.scratches,
-            originalPaint: req.body.originalPaint,
-            accidentCount: req.body.accidentCount,
-            previousBuyer: req.body.previousBuyer,
-            registrationPlace: req.body.registrationPlace,
-            image: result.url,
-            description: req.body.description
-        });
-
-        await allInventory.save();
-        res.status(200).send({ msg: "Inventory Added", allInventory });
-    } catch (error) {
-        console.error(error);
-        res.status(400).send({ msg: error.message });
-    }
-});
-*/
 
 inventoryRouter.post("/add", async (req,res)=>{
     const newInventory = new inventoryModel(req.body);
@@ -60,24 +14,81 @@ inventoryRouter.post("/add", async (req,res)=>{
 })
 
 inventoryRouter.get("/", async (req, res) => {
-    try {
-        const category = req.query.category
-        console.log(category)
-        if (category) {
-             const cars = await inventoryModel.find({ category: category });
+    const { mileage, color } = req.query;
 
-             res.status(200).send(cars);
+  console.log(color);
+  try {
+    if(mileage){
+        try {
+            const filterMileage = await inventoryModel.find({mileage})
+            res.status(200).send({filterMileage})
+        } catch (error) {
+            res.status(500).send({"err":err.message})
         }
-       
+    }else if(color){
+        try {
+           const filterColor = await inventoryModel.find({color})
+           console.log(filterColor);
+           res.status(200).send({"Data":filterColor}) 
+        } catch (error) {
+            res.status(500).send({"err":err.message})
+        }
+    }
+    const data = await inventoryModel.find();
+    res.status(200).send({"Data":data})
+  } catch (error) {
+    res.status(500).send({"err":error.message})
+  }
 
-        const cars = await inventoryModel.find();
-        res.status(200).send(cars);
-   }
-
-   catch (err) {
-    res.status(400).send({ "msg": err.message })
-   }
 });
+
+
+inventoryRouter.put("/inventory/:id", async (req,res) => {
+    const carID = req.params.id;
+    const newInventory = req.body;
+    try {
+        const existingInventory = await inventoryModel.findById(carID);
+
+        if(!existingInventory){
+            return res.status(404).send({ msg: 'Inventory not found' }); 
+        }
+        existingInventory.mileage = newInventory.mileage;
+        existingInventory.color = newInventory.color;
+        existingInventory.price = newInventory.price;
+
+        await existingInventory.save();
+        res.status(200).send({ msg: 'Inventory updated successfully', updatedInventory: existingInventory });
+    } catch (error) {
+        res.status(400).send({ msg: 'Error updating inventory', error: error.message });
+    }
+});
+
+inventoryRouter.delete("/inventory/:id", async (req,res) => {
+    const carID = req.params.id;
+    try {
+        const deleteInventory = await inventoryModel.findByIdAndDelete(carID);
+        res.status(200).send({ msg: "Inventory deleted successfully", deleteInventory });
+    } catch (error) {
+        res.status(400).send({ msg: "Error deleting Inventory", error: error.message });
+    }
+})
+
+inventoryRouter.get('/:id', async (req,res) => {
+    const inventoryID = req.params.id;
+
+    try {
+      const product = await inventoryModel.findById(inventoryID);
+      
+      if(!product){
+        return res.sendStatus(404).send({msg:"Inventory not found"})
+      }
+      res.status(200).send(product);
+    } catch (error) { res.status(400).send({ error: error.message });
+        
+    }
+})
+
+
 
 module.exports = { inventoryRouter };
 

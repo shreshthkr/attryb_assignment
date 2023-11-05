@@ -4,6 +4,7 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import { getInventory } from "../../Redux/action";
 import InventoryCard from "./InventoryCard";
 import SideBar from "./SideBar";
+import "./HomePage.css";
 const HomePage = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
@@ -22,19 +23,19 @@ const HomePage = () => {
    }
 
    useEffect(()=>{
-    dispatch(getInventory(obj))
+    dispatch(getInventory(obj.params))
    },[location.search])
 
   console.log(inventoryData);
 
 
   return (
-    <div>
+    <div className="homepage">
       <div>
         <SideBar />
       </div>
       <div>
-      {inventoryData && inventoryData?.map((el)=>(
+      {inventoryData && inventoryData.map((el)=>(
 
       <InventoryCard key={el._id} car={el} />
       ))}

@@ -21,8 +21,8 @@ export const getInventory = (param) => (dispatch) => {
     dispatch(getInventoryRequest());
     axios.get(`http://localhost:8080/inventory`,param)
     .then((res)=> {
-        console.log(res.data);
-        dispatch(getInventorySuccess(res.data))
+        console.log(param);
+        dispatch(getInventorySuccess(res.data.Data))
     })
     .catch((err)=>{
         dispatch(getInventoryError())

@@ -6,9 +6,79 @@
     align-items: center;
     justify-content: center;
 }
+.dealer-loginbox{
+    width: 28%;
+    height: auto;
+}
 .dealer-signup{
-    width: 30%;
-    height: 500px;
-    border: 1px solid red;
-    
+    width: 35%;
+    height:auto;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.dealer-signup>h2{
+    width: 100%;
+    height: 35px;
+    color: teal;
+    text-align: center;
+    background-color: aliceblue;
+
+}
+.dealersignup-form{
+    width: 95%;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.dealersignup-form div{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.dealersignup-form div label{
+    width: 20%;
+    margin: auto;
+}
+.dealersignup-form div label+input{
+      width: 90%; 
+      height: 100%;
+      border: 1px solid gray;
+      border-radius: 5px;
+      font-size: 15px;
+}
+.submit-button{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submit-button button{
+    width: 150px;
+    height: 100%;
+    background-color: teal;
+    border: none;
+    color: #ffff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.state-define{
+    margin-top: 20px;
+}
+.state-define p{
+    font-weight: 600;
+}
+.state-define p span{
+    color: blue;
+    cursor: pointer;
 }

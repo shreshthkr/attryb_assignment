@@ -94,6 +94,10 @@ const Login = () => {
     return navigate("/");
   };
 
+  const toDealer = () => {
+    return navigate("/dealer")
+  }
+
   return (
     <div className="login-page">
       <div className="login-left">
@@ -167,7 +171,7 @@ const Login = () => {
             <span onClick={() => setState(!state)}>SignUP</span> ?
           </p>
           <p>
-            Register Yourself as <span>Dealer</span>
+            Register Yourself as <span onClick={toDealer}>Dealer</span>
           </p>
         </div>
       </div>

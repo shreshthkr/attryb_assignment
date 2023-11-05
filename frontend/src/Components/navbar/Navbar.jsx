@@ -17,6 +17,14 @@ const Navbar = () => {
 const toDealerPage = () => {
   return navigate("/dealer")
 }
+
+ const toAddCar = () => {
+  return navigate("/inventory")
+ }
+const toOEM = () => {
+  return navigate("/oem")
+}
+
   return (
     <div className='navbar'>
        <div className='logo'>
@@ -25,8 +33,8 @@ const toDealerPage = () => {
        </div>
        <div className='nav-menu'>
            <ul>
-            <li>About us</li>
-            <li>Contact us</li>
+            <li onClick={toOEM}>OEM Specs</li>
+            <li onClick={toAddCar}>Add Car</li>
             <li onClick={toDealerPage}>Dealer Section</li>
             <li onClick={toLogin}><RxAvatar fontSize={"25px"} /> Login/Signup</li>
            </ul>

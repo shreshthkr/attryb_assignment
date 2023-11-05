@@ -8,6 +8,7 @@ oemRouter.post("/add", async (req, res) => {
   try {
     const oem = new OEMModel({
         modelName,
+        image,
         yearOfModel,
       price,
       colors,

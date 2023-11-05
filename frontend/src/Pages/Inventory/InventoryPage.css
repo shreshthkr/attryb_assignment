@@ -29,7 +29,6 @@
 .add-inventory{
     width: 50%;
     height: 600px;
-    border: 1px solid black;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -52,9 +51,234 @@
 .inventory-form{
    width: 100%;
    height: 500px;
-   border: 1px solid red;
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: space-around;
+}
+.inventory-form div{
+    width: 100%;
+    height: 50px;
+    display: flex;
+
+}
+.car-model{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-model label{
+     width: 15%;
+     font-weight: 600;
+     color: black;
+}
+.car-model label+input{
+    width: 83%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 16px;
+    color: black;
+    
+}
+.car-milage{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.car-milage div{
+    width: 49%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-milage div label{
+    width: 15%;
+    font-weight: 600;
+    color: black
+}
+.car-milage div label+input{
+    width: 73%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 16px;
+    color: black;
+}
+.car-milage>div:last-child{
+    width:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-reading{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-reading label{
+    width:25%;
+    font-weight: 600;
+    color: black;
+}
+.car-reading label+input{
+   width:75%;
+   height: 40px;
+   border-radius: 5px;
+   border: 1px solid gray;
+   font-size: 16px;
+   color: black;
+   
+}
+.car-paint{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.car-paint div{
+    width: 49%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-paint div label{
+    width: 15%;
+    font-weight: 600;
+    color: black
+}
+.car-paint div label+input{
+    width: 73%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 16px;
+    color: black;
+}
+.car-paint>div:first-child{
+    width:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-paint>div:first-child label{
+    width: 25%;
+    font-weight: 600;
+    color: black
+}
+.car-safety{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.car-safety div{
+    width: 49%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-safety div label{
+    width: 20%;
+    font-weight: 600;
+    color: black
+}
+.car-safety div label+input{
+    width: 73%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 16px;
+    color: black;
+}
+.car-safety>div:last-child{
+    width:45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-safety>div:last-child label{
+    font-size: 15px;
+    width:45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-registration{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.car-registration div{
+    width: 49%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-registration div label{
+    width: 35%;
+    font-weight: 600;
+    color: black
+}
+.car-registration div label+input{
+    width: 73%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 16px;
+    color: black;
+}
+.car-registration>div:last-child{
+    width:45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-registration>div:last-child label{
+    font-size: 15px;
+    width:45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-description{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.car-description label{
+    width: 99%;
+    font-weight: 600;
+    color: black
+}
+.car-description label+textarea{
+    width: 95%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 16px;
+    color: black;
+}
+.car-button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-button button{
+    width: 150px;
+    height: 45px;
+    border: none;
+    background-color: teal;
+    color: #ffff;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
 }

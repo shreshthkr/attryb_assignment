@@ -17,7 +17,7 @@ const InventoryCard = ({car}) => {
         <img src={car.image} alt={car.model} />
         </div>
         <div className='inventory-details'>
-          <p>{car.title}</p>
+          <p>{car.model}</p>
           <div>
             <p>Color:{car.originalPaint}</p>
             <p>Price:₹{car.price}</p>

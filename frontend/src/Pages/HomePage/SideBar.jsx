@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import "./SideBar.css";
 const SideBar = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const initialState = searchParams.getAll("mileage");
@@ -58,7 +59,7 @@ const SideBar = () => {
         <h2>Filters</h2>
        </div>
        <div className='mileage-filter'>
-          <h2>Milegae</h2>
+          <h2>Mileagae</h2>
           <div className='mileage-stats'>
              <div>
                 <input type="checkbox"
@@ -96,6 +97,9 @@ const SideBar = () => {
           </div>
        </div>
        <div className='color-stats'>
+        <div>
+          <h2>Colors</h2>
+        </div>
        <div>
              <input type="checkbox"
                  value={"red"}
