@@ -1,15 +1,15 @@
 # attryb_assignment
 
-Deployed Vercel link:- https://carbuy-imruojjcs-shreshthkr.vercel.app/
+Deployed Vercel link:- [https://carbuy-imruojjcs-shreshthkr.vercel.app/](https://carbuy.vercel.app/)
 
 # Tech stacks used:
 
- html | css | chakra-ui | ReactJs | Redux | NodeJs | ExpressJs | MongoDB | mongoose | mongodb Atlas | JavaScript
+ HTML | css | chakra-ui | ReactJs | Redux | NodeJs | ExpressJs | MongoDB | mongoose | MongoDB Atlas | JavaScript
 
  # Features:
   - User can Signup & Login
   - User can filter and sort the data
-  - Dealer can Login and Signup
+  - Dealer can log in and Signup
   - Dealer can add Inventory
   - Dealer can update and delete data
 
