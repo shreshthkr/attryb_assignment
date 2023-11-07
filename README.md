@@ -1,6 +1,6 @@
 # attryb_assignment
 
-Deployed Vercel link:- [https://carbuy-imruojjcs-shreshthkr.vercel.app/](https://carbuy.vercel.app/)
+Deployed Vercel link:- https://carbuy.vercel.app/
 
 # Tech stacks used:
 
@@ -9,7 +9,7 @@ Deployed Vercel link:- [https://carbuy-imruojjcs-shreshthkr.vercel.app/](https:/
  # Features:
   - User can Signup & Login
   - User can filter and sort the data
-  - Dealer can log in and Signup
+  - Dealer can log in and signup
   - Dealer can add Inventory
   - Dealer can update and delete data
 
